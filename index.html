@@ -6,28 +6,35 @@
     <title>CoreTrust System Inc. | 資安與 AI 數位轉型領航者</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* 視覺設定：深藍色背景與溫暖琥珀色點綴 */
         .hero-bg { background: radial-gradient(circle at top right, #1e293b, #0f172a); }
         .warm-accent { color: #fbbf24; }
+        .warm-bg { background-color: #fbbf24; }
+        
+        /* 按鈕樣式 */
         .warm-btn { background-color: #fbbf24; color: #1e293b; transition: all 0.3s; }
         .warm-btn:hover { background-color: #f59e0b; transform: translateY(-2px); }
+        
+        /* 語系切換邏輯：預設隱藏 */
         [data-lang] { display: none; }
         .lang-active-btn { background-color: #fbbf24 !important; color: #1e293b !important; font-weight: bold; }
     </style>
 </head>
-<body class="bg-white text-slate-800">
+<body class="bg-white text-slate-800 font-sans">
 
     <nav class="p-4 flex justify-between items-center bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b">
         <div class="text-2xl font-black tracking-tighter">
             CORE<span class="text-amber-500">TRUST</span>
         </div>
         
-        <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-2 md:space-x-6">
             <div id="lang-switcher" class="flex border rounded-md overflow-hidden text-xs">
-                <button data-lang-btn="zh" onclick="changeLang('zh')" class="px-2 py-1 bg-slate-100">繁中</button>
-                <button data-lang-btn="en" onclick="changeLang('en')" class="px-2 py-1 bg-slate-100 border-x">EN</button>
-                <button data-lang-btn="ja" onclick="changeLang('ja')" class="px-2 py-1 bg-slate-100">日本語</button>
+                <button data-lang-btn="zh" onclick="changeLang('zh')" class="px-2 md:px-3 py-1 bg-slate-100 hover:bg-amber-100 transition">繁中</button>
+                <button data-lang-btn="en" onclick="changeLang('en')" class="px-2 md:px-3 py-1 bg-slate-100 hover:bg-amber-100 border-x transition">EN</button>
+                <button data-lang-btn="ja" onclick="changeLang('ja')" class="px-2 md:px-3 py-1 bg-slate-100 hover:bg-amber-100 transition">日本語</button>
             </div>
-            <a href="#demo" class="warm-btn px-4 py-2 rounded-md font-bold text-sm">
+            
+            <a href="#demo" class="warm-btn px-3 md:px-4 py-2 rounded-md font-bold text-sm shadow-md">
                 <span data-lang="zh">預約演示</span>
                 <span data-lang="en">Book a Demo</span>
                 <span data-lang="ja">デモを予約</span>
@@ -35,109 +42,266 @@
         </div>
     </nav>
 
-    <header class="hero-bg text-white py-24 px-6 text-center">
-        <div class="max-w-4xl mx-auto">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6">
+    <header class="hero-bg text-white py-24 px-6 text-center relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl -z-10"></div>
+        
+        <div class="max-w-4xl mx-auto z-10 relative">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                 <span data-lang="zh">以 AI 為核心，重塑企業<br><span class="warm-accent">資安防護網</span></span>
                 <span data-lang="en">AI-Centric Security for<br><span class="warm-accent">Modern Enterprise</span></span>
                 <span data-lang="ja">AIを中心とした企業<br><span class="warm-accent">セキュリティの再定義</span></span>
             </h1>
-            <p class="text-slate-400 text-lg mb-8">
+            <p class="text-slate-400 text-lg mb-10 max-w-2xl mx-auto">
                 <span data-lang="zh">CoreTrust 與您攜手實現安心數位轉型，保障實際業務利益。</span>
                 <span data-lang="en">Partnering with you for secure digital transformation and business growth.</span>
                 <span data-lang="ja">CoreTrustは、安心なDX実現とビジネス利益の保護に向けて協力します。</span>
             </p>
+            <div class="flex justify-center gap-4">
+                <a href="#products" class="border border-slate-600 text-slate-300 px-6 py-2 rounded-full hover:bg-slate-800 transition">
+                    <span data-lang="zh">了解產品</span><span data-lang="en">Products</span><span data-lang="ja">製品紹介</span>
+                </a>
+            </div>
         </div>
     </header>
 
-    <section id="products" class="py-20 px-6 max-w-6xl mx-auto">
+    <section id="products" class="py-24 px-6 max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold">
+                <span data-lang="zh">核心解決方案</span>
+                <span data-lang="en">Core Solutions</span>
+                <span data-lang="ja">コアソリューション</span>
+            </h2>
+        </div>
+
         <div class="grid md:grid-cols-2 gap-12">
-            <div class="group border rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all">
-                <img src="images/pam.jpg" alt="PAM" class="w-full h-64 object-cover">
+            <div class="group border rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 bg-white">
+                <div class="h-64 overflow-hidden">
+                    <img src="images/pam.jpg" alt="PAM" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
                 <div class="p-8">
-                    <h3 class="text-2xl font-bold mb-4">
+                    <div class="text-3xl mb-4">🔑</div>
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-amber-600 transition">
                         <span data-lang="zh">特權管理平台</span>
                         <span data-lang="en">Privileged Access Management</span>
                         <span data-lang="ja">特権アクセス管理</span>
                     </h3>
-                    <p class="text-slate-600">
-                        <span data-lang="zh">精細化管理高權限帳號，防止內部威脅。</span>
-                        <span data-lang="en">Granular control of high-privilege accounts to prevent internal threats.</span>
-                        <span data-lang="ja">高権限アカウントを詳細に管理し、内部脅威を防止します。</span>
+                    <p class="text-slate-600 leading-relaxed">
+                        <span data-lang="zh">精細化管理企業內的高權限帳號，防止內部威脅與外部滲透。讓安全管理不再是負擔，而是業務運行的助燃劑。</span>
+                        <span data-lang="en">Granular control of high-privilege accounts to prevent internal and external threats. Turning security from a burden into a business enabler.</span>
+                        <span data-lang="ja">企業内の高権限アカウントを詳細に管理し、内部脅威と外部侵入を防止します。セキュリティ管理を負担ではなく、ビジネスの推進力に変えます。</span>
                     </p>
                 </div>
             </div>
-            <div class="group border rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all">
-                <img src="images/ai-monitor.jpg" alt="AI Monitoring" class="w-full h-64 object-cover">
+
+            <div class="group border rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 bg-white">
+                <div class="h-64 overflow-hidden">
+                    <img src="images/ai-monitor.jpg" alt="AI Monitoring" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
                 <div class="p-8">
-                    <h3 class="text-2xl font-bold mb-4">
+                    <div class="text-3xl mb-4">🤖</div>
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-amber-600 transition">
                         <span data-lang="zh">AI 工具監控平台</span>
                         <span data-lang="en">AI Tool Monitoring Platform</span>
                         <span data-lang="ja">AIツール監視プラットフォーム</span>
                     </h3>
-                    <p class="text-slate-600">
-                        <span data-lang="zh">監控數據流向，確保 AI 使用合規安全。</span>
-                        <span data-lang="en">Monitoring data flow to ensure compliant and secure AI usage.</span>
-                        <span data-lang="ja">データフローを監視し、安全なAI利用を保証します。</span>
+                    <p class="text-slate-600 leading-relaxed">
+                        <span data-lang="zh">監控數據流向，防止敏感資料外洩，確保 ChatGPT 等 AI 工具的使用既高效又符合合規要求。</span>
+                        <span data-lang="en">Monitor data flows to prevent sensitive data leakage, ensuring efficient and compliant usage of AI tools like ChatGPT.</span>
+                        <span data-lang="ja">データフローを監視し、機密データの漏洩を防ぎ、ChatGPTなどのAIツールの利用が効率的かつコンプライアンスに準拠していることを保証します。</span>
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-16 bg-slate-50 px-6 text-center">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="text-3xl font-bold mb-6">
-                <span data-lang="zh">關於我們</span><span data-lang="en">About Us</span><span data-lang="ja">会社概要</span>
+    <section id="advantages" class="py-20 px-6 bg-slate-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16">
+                <span data-lang="zh">我們的技術優勢</span>
+                <span data-lang="en">Technical Advantages</span>
+                <span data-lang="ja">当社の技術的優位性</span>
             </h2>
-            <p class="text-slate-600 leading-relaxed">
-                <span data-lang="zh">CoreTrust System 提供企業最適資訊安全防護，實現安心數位轉型。</span>
-                <span data-lang="en">CoreTrust System provides optimal cybersecurity to realize secure digital transformation.</span>
-                <span data-lang="ja">CoreTrust Systemは最適なセキュリティを提供し、安心なDXを実現します。</span>
-            </p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:border-amber-300 transition">
+                    <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center text-2xl mb-4">💡</div>
+                    <h3 class="font-bold text-lg mb-3">
+                        <span data-lang="zh">AI 智慧分析引擎</span>
+                        <span data-lang="en">AI Intelligent Analysis</span>
+                        <span data-lang="ja">AI分析エンジン</span>
+                    </h3>
+                    <p class="text-slate-600 text-sm">
+                        <span data-lang="zh">搭載自主研發 AI 核心，即時分析海量數據，預測並阻擋未知威脅。</span>
+                        <span data-lang="en">Proprietary AI core analyzing vast data in real-time to predict and block unknown threats.</span>
+                        <span data-lang="ja">独自開発のAIコアを搭載し、膨大なデータをリアルタイム分析、未知の脅威を予測・阻止。</span>
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:border-amber-300 transition">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-2xl mb-4">⚙️</div>
+                    <h3 class="font-bold text-lg mb-3">
+                        <span data-lang="zh">模組化彈性部署</span>
+                        <span data-lang="en">Modular Deployment</span>
+                        <span data-lang="ja">柔軟なモジュール展開</span>
+                    </h3>
+                    <p class="text-slate-600 text-sm">
+                        <span data-lang="zh">高度彈性設計，依企業規模快速調整，無縫整合現有 IT 架構。</span>
+                        <span data-lang="en">Highly flexible design adapting to enterprise scale, seamlessly integrating with existing IT.</span>
+                        <span data-lang="ja">高い柔軟性を持ち、企業規模に合わせて迅速に調整、既存ITインフラとシームレスに統合。</span>
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:border-amber-300 transition">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-2xl mb-4">🤝</div>
+                    <h3 class="font-bold text-lg mb-3">
+                        <span data-lang="zh">人性化操作介面</span>
+                        <span data-lang="en">Intuitive Interface</span>
+                        <span data-lang="ja">直感的な操作性</span>
+                    </h3>
+                    <p class="text-slate-600 text-sm">
+                        <span data-lang="zh">直覺式介面簡化複雜管理，讓非技術人員也能輕鬆掌握，提升效率。</span>
+                        <span data-lang="en">Intuitive interface simplifying complex management for non-tech personnel, boosting efficiency.</span>
+                        <span data-lang="ja">直感的な画面で管理を簡素化、非技術者でも容易に習得でき、運用効率を向上。</span>
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:border-amber-300 transition">
+                    <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center text-2xl mb-4">☁️</div>
+                    <h3 class="font-bold text-lg mb-3">
+                        <span data-lang="zh">雲地整合防護</span>
+                        <span data-lang="en">Hybrid Cloud Protection</span>
+                        <span data-lang="ja">ハイブリッド保護</span>
+                    </h3>
+                    <p class="text-slate-600 text-sm">
+                        <span data-lang="zh">支援混合雲及地端部署，提供無死角的全面性資安保護。</span>
+                        <span data-lang="en">Support for hybrid cloud and on-premise, providing comprehensive security.</span>
+                        <span data-lang="ja">ハイブリッドクラウドとオンプレミスに対応、死角のない包括的な保護を提供。</span>
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="demo" class="py-20 px-6">
-        <div class="max-w-4xl mx-auto bg-slate-900 rounded-3xl overflow-hidden flex flex-col md:flex-row">
-            <div class="p-12 md:w-1/2 text-white">
-                <h2 class="text-3xl font-bold mb-4">
-                    <span data-lang="zh">預約演示</span><span data-lang="en">Book a Demo</span><span data-lang="ja">デモを予約</span>
-                </h2>
-                <p class="text-slate-400">
-                    <span data-lang="zh">我們的顧問將盡快與您聯繫。</span>
-                    <span data-lang="en">Our consultant will contact you shortly.</span>
-                    <span data-lang="ja">コンサルタントからご連絡いたします。</span>
+    <section id="about" class="py-24 px-6 bg-white relative">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8">
+                <span data-lang="zh">關於 CoreTrust System Inc.</span>
+                <span data-lang="en">About CoreTrust System Inc.</span>
+                <span data-lang="ja">CoreTrust System Inc. について</span>
+            </h2>
+            <div class="prose prose-lg mx-auto text-slate-600 leading-loose">
+                <p>
+                    <span data-lang="zh">CoreTrust System Inc. 創立於數位轉型浪潮中，我們深知企業在擁抱 AI 創新時，資安防護是其成功的基石。我們不僅提供尖端技術，更將客戶視為長期夥伴，透過量身打造的解決方案，讓您的每一次數位飛躍都能安心無虞。我們的使命是成為您最信賴的資安與 AI 賦能夥伴，共同創造更安全、高效的數位未來。</span>
+                    <span data-lang="en">Established amidst the digital transformation wave, CoreTrust System Inc. understands that robust cybersecurity is the cornerstone for enterprises embracing AI innovation. We don't just provide cutting-edge technology; we view our clients as long-term partners, offering tailored solutions to ensure every digital leap you take is secure. Our mission is to be your most trusted cybersecurity and AI enablement partner, collectively forging a safer, more efficient digital future.</span>
+                    <span data-lang="ja">CoreTrust System Inc.は、デジタルトランスフォーメーションの波の中で設立されました。AIイノベーションを推進する企業にとって、堅牢なサイバーセキュリティが成功の基盤であることを深く理解しています。当社は最先端技術を提供するだけでなく、お客様を長期的なパートナーと見なし、オーダーメイドのソリューションを通じて、あらゆるデジタルの飛躍が安心して行えるよう支援します。私たちの使命は、お客様にとって最も信頼できるサイバーセキュリティとAI活性化のパートナーとなり、より安全で効率的なデジタル未来を共に創造することです。</span>
                 </p>
             </div>
+        </div>
+    </section>
+
+    <section id="demo" class="py-24 px-6 bg-slate-50">
+        <div class="max-w-5xl mx-auto bg-slate-900 rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl">
+            <div class="p-12 md:w-1/2 text-white relative">
+                <div class="absolute top-0 left-0 w-full h-full bg-slate-800/50 z-0"></div>
+                <div class="relative z-10">
+                    <h2 class="text-3xl font-bold mb-6">
+                        <span data-lang="zh">準備好開始了嗎？</span>
+                        <span data-lang="en">Ready to start?</span>
+                        <span data-lang="ja">準備はいいですか？</span>
+                    </h2>
+                    <p class="text-slate-400 mb-8">
+                        <span data-lang="zh">留下您的聯絡資訊，我們的資深顧問將在 24 小時內與您聯繫，為您規劃專屬的資安與 AI 策略。</span>
+                        <span data-lang="en">Leave your contact info, and our senior consultants will contact you within 24 hours to plan your security & AI strategy.</span>
+                        <span data-lang="ja">ご連絡先を残してくだされば、24時間以内にシニアコンサルタントがご連絡し、セキュリティとAI戦略を策定します。</span>
+                    </p>
+                    <ul class="space-y-4 text-sm text-slate-300">
+                        <li>✓ <span data-lang="zh">1 對 1 專家需求診斷</span><span data-lang="en">1-on-1 Expert Diagnosis</span><span data-lang="ja">1対1の専門家診断</span></li>
+                        <li>✓ <span data-lang="zh">產品功能完整演示</span><span data-lang="en">Full Product Demo</span><span data-lang="ja">製品機能の完全デモ</span></li>
+                    </ul>
+                </div>
+            </div>
+
             <div class="p-12 md:w-1/2 bg-white">
-                <form action="https://formspree.io/f/xvzgkeww" method="POST" class="space-y-4">
-                    <input type="text" name="name" placeholder="Name" class="w-full border p-3 rounded-lg" required>
-                    <input type="email" name="email" placeholder="Email" class="w-full border p-3 rounded-lg" required>
-                    <select name="product" class="w-full border p-3 rounded-lg">
-                        <option value="PAM">Privileged Access Management</option>
-                        <option value="AI-Monitor">AI Tool Monitoring</option>
-                    </select>
-                    <button type="submit" class="w-full warm-btn py-4 rounded-lg font-bold">Submit</button>
+                <form action="https://formspree.io/f/xvzgkeww" method="POST" class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-semibold mb-1 text-slate-700">
+                            <span data-lang="zh">姓名</span><span data-lang="en">Name</span><span data-lang="ja">お名前</span>
+                        </label>
+                        <input type="text" name="name" class="w-full border p-3 rounded-lg focus:ring-2 focus:ring-amber-500 outline-none transition" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-1 text-slate-700">
+                            <span data-lang="zh">公司電子郵件</span><span data-lang="en">Company Email</span><span data-lang="ja">会社メール</span>
+                        </label>
+                        <input type="email" name="email" class="w-full border p-3 rounded-lg focus:ring-2 focus:ring-amber-500 outline-none transition" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-1 text-slate-700">
+                            <span data-lang="zh">感興趣的產品</span><span data-lang="en">Interested Product</span><span data-lang="ja">興味のある製品</span>
+                        </label>
+                        <select name="product" class="w-full border p-3 rounded-lg focus:ring-2 focus:ring-amber-500 outline-none bg-white">
+                            <option value="PAM">PAM (Privileged Access)</option>
+                            <option value="AI-Monitor">AI Tool Monitoring</option>
+                            <option value="Both">Both / 兩者皆有</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full warm-btn py-4 rounded-lg font-bold text-lg shadow-lg mt-2">
+                        <span data-lang="zh">立即預約演示</span>
+                        <span data-lang="en">Book a Demo Now</span>
+                        <span data-lang="ja">今すぐデモを予約</span>
+                    </button>
                 </form>
             </div>
         </div>
     </section>
 
+    <footer class="py-10 text-center text-slate-400 text-sm border-t bg-white">
+        © 2026 CoreTrust System Inc. All rights reserved. 
+        <br class="md:hidden">
+        <span data-lang="zh">攜手守護，共創價值。</span>
+        <span data-lang="en">Partnering for protection, creating value together.</span>
+        <span data-lang="ja">共に守り、共に価値を創造する。</span>
+    </footer>
+
     <script>
         function changeLang(lang) {
-            document.querySelectorAll('[data-lang]').forEach(el => el.style.display = 'none');
+            // 隱藏所有語系元素
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.style.display = 'none';
+            });
+            // 顯示當前選定語系
             document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => {
                 const tag = el.tagName.toLowerCase();
-                el.style.display = (tag === 'span') ? 'inline' : 'block';
+                // 如果是 span 或 option，使用 inline 顯示，否則用 block
+                el.style.display = (tag === 'span' || tag === 'option') ? 'inline' : 'block';
             });
-            document.querySelectorAll('[data-lang-btn]').forEach(btn => btn.classList.remove('lang-active-btn'));
-            document.querySelector(`[data-lang-btn="${lang}"]`).classList.add('lang-active-btn');
+
+            // 更新按鈕狀態
+            document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+                btn.classList.remove('lang-active-btn');
+            });
+            const activeBtn = document.querySelector(`[data-lang-btn="${lang}"]`);
+            if (activeBtn) {
+                activeBtn.classList.add('lang-active-btn');
+            }
+
+            // 儲存設定
             localStorage.setItem('preferredLang', lang);
         }
 
+        // 初始化：讀取儲存設定或偵測瀏覽器語言
         window.onload = () => {
-            let userLang = localStorage.getItem('preferredLang') || (navigator.language.startsWith('ja') ? 'ja' : navigator.language.startsWith('zh') ? 'zh' : 'en');
+            let userLang = localStorage.getItem('preferredLang');
+            if (!userLang) {
+                const browserLang = navigator.language || navigator.userLanguage;
+                if (browserLang.toLowerCase().includes('ja')) {
+                    userLang = 'ja';
+                } else if (browserLang.toLowerCase().includes('zh')) {
+                    userLang = 'zh';
+                } else {
+                    userLang = 'en';
+                }
+            }
             changeLang(userLang);
         };
     </script>

@@ -68,55 +68,77 @@
         </div>
     </header>
 
-    <section id="products" class="py-24 px-6 max-w-6xl mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold">
-                <span data-lang="zh">核心解決方案</span>
-                <span data-lang="en">Core Solutions</span>
-                <span data-lang="ja">コアソリューション</span>
-            </h2>
-        </div>
+<section id="products" class="py-20 px-4 md:px-6 max-w-6xl mx-auto">
+    <div class="text-center mb-12 md:mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold">
+            <span data-lang="zh">核心解決方案</span>
+            <span data-lang="en">Core Solutions</span>
+            <span data-lang="ja">コアソリューション</span>
+        </h2>
+    </div>
 
-        <div class="grid md:grid-cols-2 gap-12">
-            <div class="group border rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 bg-white">
-                <div class="h-64 overflow-hidden">
-                    <img src="images/pam.jpg" alt="PAM" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                </div>
-                <div class="p-8">
-                    <div class="text-3xl mb-4">🔑</div>
-                    <h3 class="text-2xl font-bold mb-4 group-hover:text-amber-600 transition">
-                        <span data-lang="zh">特權管理平台</span>
-                        <span data-lang="en">Privileged Access Management</span>
-                        <span data-lang="ja">特権アクセス管理</span>
-                    </h3>
-                    <p class="text-slate-600 leading-relaxed">
-                        <span data-lang="zh">精細化管理企業內的高權限帳號，防止內部威脅與外部滲透。讓安全管理不再是負擔，而是業務運行的助燃劑。</span>
-                        <span data-lang="en">Granular control of high-privilege accounts to prevent internal and external threats. Turning security from a burden into a business enabler.</span>
-                        <span data-lang="ja">企業内の高権限アカウントを詳細に管理し、内部脅威と外部侵入を防止します。セキュリティ管理を負担ではなく、ビジネスの推進力に変えます。</span>
-                    </p>
-                </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        
+        <div class="product-card opacity-0 translate-y-8 transition-all duration-700 ease-out border rounded-3xl overflow-hidden shadow-sm hover:shadow-xl bg-white flex flex-col">
+            <div class="h-56 md:h-72 overflow-hidden shrink-0">
+                <img src="images/pam.jpg" alt="PAM" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
             </div>
-
-            <div class="group border rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 bg-white">
-                <div class="h-64 overflow-hidden">
-                    <img src="images/ai-monitor.jpg" alt="AI Monitoring" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                </div>
-                <div class="p-8">
-                    <div class="text-3xl mb-4">🤖</div>
-                    <h3 class="text-2xl font-bold mb-4 group-hover:text-amber-600 transition">
-                        <span data-lang="zh">AI 工具監控平台</span>
-                        <span data-lang="en">AI Tool Monitoring Platform</span>
-                        <span data-lang="ja">AIツール監視プラットフォーム</span>
-                    </h3>
-                    <p class="text-slate-600 leading-relaxed">
-                        <span data-lang="zh">監控數據流向，防止敏感資料外洩，確保 ChatGPT 等 AI 工具的使用既高效又符合合規要求。</span>
-                        <span data-lang="en">Monitor data flows to prevent sensitive data leakage, ensuring efficient and compliant usage of AI tools like ChatGPT.</span>
-                        <span data-lang="ja">データフローを監視し、機密データの漏洩を防ぎ、ChatGPTなどのAIツールの利用が効率的かつコンプライアンスに準拠していることを保証します。</span>
-                    </p>
-                </div>
+            <div class="p-6 md:p-10 flex-grow">
+                <div class="text-3xl mb-4">🔑</div>
+                <h3 class="text-xl md:text-2xl font-bold mb-4">
+                    <span data-lang="zh">特權管理平台</span>
+                    <span data-lang="en">Privileged Access Management</span>
+                    <span data-lang="ja">特権アクセス管理</span>
+                </h3>
+                <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+                    <span data-lang="zh">精細化管理高權限帳號，防止內部威脅。確保安全不再是負擔。</span>
+                    <span data-lang="en">Granular control of high-privilege accounts to prevent internal threats.</span>
+                    <span data-lang="ja">高権限アカウントを詳細に管理し、内部脅威を防止します。</span>
+                </p>
             </div>
         </div>
-    </section>
+
+        <div class="product-card opacity-0 translate-y-8 transition-all duration-700 ease-out border rounded-3xl overflow-hidden shadow-sm hover:shadow-xl bg-white flex flex-col">
+            <div class="h-56 md:h-72 overflow-hidden shrink-0">
+                <img src="images/ai-monitor.jpg" alt="AI Monitoring" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+            </div>
+            <div class="p-6 md:p-10 flex-grow">
+                <div class="text-3xl mb-4">🤖</div>
+                <h3 class="text-xl md:text-2xl font-bold mb-4">
+                    <span data-lang="zh">AI 工具監控平台</span>
+                    <span data-lang="en">AI Tool Monitoring Platform</span>
+                    <span data-lang="ja">AIツール監視プラットフォーム</span>
+                </h3>
+                <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+                    <span data-lang="zh">監控數據流向，確保 AI 工具使用高效且符合合規要求。</span>
+                    <span data-lang="en">Monitoring data flow to ensure efficient and compliant AI tool usage.</span>
+                    <span data-lang="ja">データフローを監視し、AIツール利用の効率性と合規性を保証します。</span>
+                </p>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<script>
+    // Intersection Observer 用於監測滾動並觸發動畫
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.remove('opacity-0', 'translate-y-8');
+                entry.target.classList.add('opacity-100', 'translate-y-0');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.product-card').forEach(card => {
+        observer.observe(card);
+    });
+</script>
 
     <section id="advantages" class="py-20 px-6 bg-slate-50">
         <div class="max-w-6xl mx-auto">

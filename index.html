@@ -26,25 +26,25 @@
 </head>
 <body class="bg-white text-slate-800 font-sans">
 
-    <nav class="p-4 flex justify-between items-center bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b">
-        <div class="text-2xl font-black tracking-tighter">
-            CORE<span class="text-amber-500">TRUST</span>
+  <nav class="p-4 flex justify-between items-center bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b">
+    <div class="text-xl md:text-2xl font-black tracking-tighter shrink-0">
+        CORE<span class="text-amber-500">TRUST</span>
+    </div>
+    
+    <div class="flex items-center space-x-2">
+        <div id="lang-switcher" class="flex border rounded-md overflow-hidden text-[10px] md:text-xs">
+            <button data-lang-btn="zh" onclick="changeLang('zh')" class="px-1.5 md:px-3 py-1 bg-slate-100 transition">繁中</button>
+            <button data-lang-btn="en" onclick="changeLang('en')" class="px-1.5 md:px-3 py-1 bg-slate-100 border-x transition">EN</button>
+            <button data-lang-btn="ja" onclick="changeLang('ja')" class="px-1.5 md:px-3 py-1 bg-slate-100 transition">日本語</button>
         </div>
         
-        <div class="flex items-center space-x-2 md:space-x-6">
-            <div id="lang-switcher" class="flex border rounded-md overflow-hidden text-xs">
-                <button data-lang-btn="zh" onclick="changeLang('zh')" class="px-2 md:px-3 py-1 bg-slate-100 hover:bg-amber-100 transition">繁中</button>
-                <button data-lang-btn="en" onclick="changeLang('en')" class="px-2 md:px-3 py-1 bg-slate-100 hover:bg-amber-100 border-x transition">EN</button>
-                <button data-lang-btn="ja" onclick="changeLang('ja')" class="px-2 md:px-3 py-1 bg-slate-100 hover:bg-amber-100 transition">日本語</button>
-            </div>
-            
-            <a href="#demo" class="warm-btn px-3 md:px-4 py-2 rounded-md font-bold text-sm shadow-md">
-                <span data-lang="zh">預約演示</span>
-                <span data-lang="en">Book a Demo</span>
-                <span data-lang="ja">デモを予約</span>
-            </a>
-        </div>
-    </nav>
+        <a href="#demo" class="warm-btn px-2 md:px-4 py-2 rounded-md font-bold text-[11px] md:text-sm shadow-md shrink-0">
+            <span data-lang="zh">預約</span><span class="hidden md:inline" data-lang="zh">演示</span>
+            <span data-lang="en">Demo</span>
+            <span data-lang="ja">デモ</span><span class="hidden md:inline" data-lang="ja">予約</span>
+        </a>
+    </div>
+</nav>
 
     <header class="hero-bg text-white py-24 px-6 text-center relative overflow-hidden">
         <div class="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl -z-10"></div>

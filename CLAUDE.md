@@ -95,7 +95,7 @@ The site supports three languages:
 ```
 
 - The active language is persisted in `localStorage` under the key `preferredLang`.
-- On page load, the script reads `preferredLang`, falling back to browser language detection, then to `'zh'`.
+- On page load, the script reads `preferredLang`, falling back to browser language detection, then to `'en'`.
 
 ### Styling
 

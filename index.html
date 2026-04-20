@@ -319,7 +319,7 @@
         window.onload = () => {
             let userLang = localStorage.getItem('preferredLang');
             if (!userLang) {
-                const browserLang = navigator.language || navigator.userLanguage;
+                const browserLang = navigator.language || navigator.userLanguage || '';
                 if (browserLang.toLowerCase().includes('ja')) {
                     userLang = 'ja';
                 } else if (browserLang.toLowerCase().includes('zh')) {

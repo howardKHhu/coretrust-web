@@ -3,11 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoreTrust System Inc. | 資安內控與 AI 監控專家</title>
+    <title>CoreTrust System Inc. | AI-Centric Cybersecurity for Modern Enterprise</title>
+
+    <!-- SEO: Core -->
+    <meta name="description" content="CoreTrust System Inc. provides AI-centric cybersecurity solutions — Privileged Access Management (PAM) and AI Tool Monitoring — helping enterprises achieve secure digital transformation.">
+    <meta name="keywords" content="cybersecurity, privileged access management, PAM, AI monitoring, AI tool monitoring, enterprise security, CoreTrust, 資安, 特權管理, AI監控">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://coretrustsystem.com/">
+
+    <!-- Open Graph (Facebook / LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://coretrustsystem.com/">
+    <meta property="og:site_name" content="CoreTrust System Inc.">
+    <meta property="og:title" content="CoreTrust System Inc. | AI-Centric Cybersecurity">
+    <meta property="og:description" content="Privileged Access Management and AI Tool Monitoring solutions for modern enterprise security. Book a demo today.">
+    <meta property="og:image" content="https://coretrustsystem.com/images/pam.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="zh_TW">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="ja_JP">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CoreTrust System Inc. | AI-Centric Cybersecurity">
+    <meta name="twitter:description" content="Privileged Access Management and AI Tool Monitoring for modern enterprise. Book a demo today.">
+    <meta name="twitter:image" content="https://coretrustsystem.com/images/pam.jpg">
+
+    <!-- JSON-LD: Organization Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "CoreTrust System Inc.",
+      "url": "https://coretrustsystem.com",
+      "logo": "https://coretrustsystem.com/favicon.png",
+      "description": "CoreTrust System Inc. provides AI-centric cybersecurity solutions including Privileged Access Management (PAM) and AI Tool Monitoring for modern enterprises.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "url": "https://coretrustsystem.com/#demo"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Privileged Access Management",
+          "description": "Granular control of high-privilege accounts to prevent internal threats."
+        },
+        {
+          "@type": "Offer",
+          "name": "AI Tool Monitoring Platform",
+          "description": "Monitoring data flow to ensure efficient and compliant AI tool usage."
+        }
+      ]
+    }
+    </script>
 
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* 視覺設定：深藍色背景與溫暖琥珀色點綴 */
@@ -290,6 +344,22 @@
     </footer>
 
     <script>
+        // 各語系的 <html lang> 值與頁面 <title>
+        const LANG_META = {
+            zh: {
+                htmlLang: 'zh-Hant',
+                title: 'CoreTrust System Inc. | 資安內控與 AI 監控專家'
+            },
+            en: {
+                htmlLang: 'en',
+                title: 'CoreTrust System Inc. | AI-Centric Cybersecurity for Modern Enterprise'
+            },
+            ja: {
+                htmlLang: 'ja',
+                title: 'CoreTrust System Inc. | 企業向けAIセキュリティの再定義'
+            }
+        };
+
         function changeLang(lang) {
             // 隱藏所有語系元素
             document.querySelectorAll('[data-lang]').forEach(el => {
@@ -310,6 +380,11 @@
             if (activeBtn) {
                 activeBtn.classList.add('lang-active-btn');
             }
+
+            // 更新 <html lang> 與 <title>（有助 SEO 及無障礙）
+            const meta = LANG_META[lang] || LANG_META['en'];
+            document.documentElement.lang = meta.htmlLang;
+            document.title = meta.title;
 
             // 儲存設定
             localStorage.setItem('preferredLang', lang);

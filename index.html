@@ -132,7 +132,153 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-        
+
+        <!-- AI Tool Monitoring Platform（左） -->
+        <div class="product-card opacity-0 translate-y-8 transition-all duration-700 ease-out border rounded-3xl overflow-hidden shadow-sm hover:shadow-xl bg-white flex flex-col">
+            <div class="h-56 md:h-72 overflow-hidden shrink-0">
+                <img src="images/ai-monitor.jpg" alt="AI Monitoring" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+            </div>
+            <div class="p-6 md:p-10 flex-grow flex flex-col">
+                <div class="text-3xl mb-4">🤖</div>
+                <h3 class="text-xl md:text-2xl font-bold mb-4">
+                    <span data-lang="zh">AI 工具監控平台</span>
+                    <span data-lang="en">AI Tool Monitoring Platform</span>
+                    <span data-lang="ja">AIツール監視プラットフォーム</span>
+                </h3>
+                <p class="text-slate-600 text-sm md:text-base leading-relaxed mb-6">
+                    <span data-lang="zh">企業 AI 的治理閘道 — 單一入口，掌控所有 LLM，零資料外洩。</span>
+                    <span data-lang="en">The governance gateway for enterprise AI — one gateway, every LLM, zero data leaks.</span>
+                    <span data-lang="ja">企業AI向けガバナンスゲートウェイ — 一元管理、全LLM対応、データ漏洩ゼロ。</span>
+                </p>
+
+                <!-- 展開按鈕 -->
+                <button onclick="toggleAiDetail()" id="ai-toggle-btn"
+                    class="flex items-center gap-2 text-sm font-semibold text-amber-600 hover:text-amber-700 transition mt-auto">
+                    <span id="ai-toggle-label">
+                        <span data-lang="zh">了解更多</span>
+                        <span data-lang="en">Learn More</span>
+                        <span data-lang="ja">詳しく見る</span>
+                    </span>
+                    <svg id="ai-toggle-icon" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+
+                <!-- 可展開的詳細內容 -->
+                <div id="ai-detail" style="max-height:0; overflow:hidden; transition: max-height 0.45s ease;">
+                    <div class="mt-6 space-y-5 border-t pt-6">
+
+                        <!-- 問題描述 -->
+                        <div>
+                            <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3">
+                                <span data-lang="zh">企業面臨的挑戰</span>
+                                <span data-lang="en">The Problem</span>
+                                <span data-lang="ja">企業が直面する課題</span>
+                            </p>
+                            <div class="grid grid-cols-3 gap-2 text-center text-xs text-slate-600">
+                                <div class="bg-red-50 rounded-xl p-3">
+                                    <div class="text-lg mb-1">💸</div>
+                                    <span data-lang="zh">AI 費用失控</span>
+                                    <span data-lang="en">Runaway Costs</span>
+                                    <span data-lang="ja">コスト急騰</span>
+                                </div>
+                                <div class="bg-red-50 rounded-xl p-3">
+                                    <div class="text-lg mb-1">🔓</div>
+                                    <span data-lang="zh">敏感資料外洩</span>
+                                    <span data-lang="en">Data Leaks</span>
+                                    <span data-lang="ja">機密漏洩</span>
+                                </div>
+                                <div class="bg-red-50 rounded-xl p-3">
+                                    <div class="text-lg mb-1">⚠️</div>
+                                    <span data-lang="zh">缺乏治理層</span>
+                                    <span data-lang="en">No Governance</span>
+                                    <span data-lang="ja">ガバナンス不足</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 三層架構 -->
+                        <div>
+                            <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3">
+                                <span data-lang="zh">三大執行層</span>
+                                <span data-lang="en">Three Execution Layers</span>
+                                <span data-lang="ja">3つの実行レイヤー</span>
+                            </p>
+                            <div class="space-y-3">
+                                <div class="flex gap-3 items-start">
+                                    <div class="w-8 h-8 bg-amber-100 rounded-lg flex items-center justify-center text-base shrink-0">💰</div>
+                                    <div>
+                                        <p class="font-semibold text-sm text-slate-800">
+                                            <span data-lang="zh">預算管控</span>
+                                            <span data-lang="en">Budget Control</span>
+                                            <span data-lang="ja">予算管理</span>
+                                        </p>
+                                        <p class="text-xs text-slate-500 leading-relaxed">
+                                            <span data-lang="zh">按使用者設定每日 / 每月消費上限，即時儀表板掌握全組織用量，超限自動封鎖。</span>
+                                            <span data-lang="en">Per-user spend caps with real-time org-wide dashboard. LLM calls auto-blocked once limit is reached.</span>
+                                            <span data-lang="ja">ユーザー別支出上限を設定。リアルタイムダッシュボードで組織全体を把握、上限到達で自動ブロック。</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-3 items-start">
+                                    <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center text-base shrink-0">🎛️</div>
+                                    <div>
+                                        <p class="font-semibold text-sm text-slate-800">
+                                            <span data-lang="zh">角色型模型與 Prompt 群組</span>
+                                            <span data-lang="en">Role-Based Model & Prompt Groups</span>
+                                            <span data-lang="ja">ロールベース モデル・プロンプトグループ</span>
+                                        </p>
+                                        <p class="text-xs text-slate-500 leading-relaxed">
+                                            <span data-lang="zh">按部門（業務、工程、財務…）分配允許的 LLM 清單與 Prompt 規則，財務、M&A、HR 等敏感主題在 Prompt 層即時封鎖。</span>
+                                            <span data-lang="en">Assign employees to groups with allowed-model lists and prompt rulesets. Sensitive topics — financials, M&A, HR — blocked at the prompt layer.</span>
+                                            <span data-lang="ja">Sales・PM・Engineering等のグループに許可モデルとプロンプトルールを割り当て。財務・M&A・HRなどの機密トピックはプロンプト層でブロック。</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-3 items-start">
+                                    <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center text-base shrink-0">🔏</div>
+                                    <div>
+                                        <p class="font-semibold text-sm text-slate-800">
+                                            <span data-lang="zh">PII 自動遮蔽 + 會話鎖定</span>
+                                            <span data-lang="en">PII Auto-Redaction + Session Lock</span>
+                                            <span data-lang="ja">PII自動編集 + セッションロック</span>
+                                        </p>
+                                        <p class="text-xs text-slate-500 leading-relaxed">
+                                            <span data-lang="zh">即時攔截 API 金鑰、AWS 憑證、JWT Token、資料庫密碼，離開網路前自動遮蔽；高安全模式將整個會話鎖定至本地模型。</span>
+                                            <span data-lang="en">Real-time interception of API keys, AWS credentials, JWT tokens, and DB passwords before they leave the network. High-security mode locks the session to a local LLM.</span>
+                                            <span data-lang="ja">APIキー・AWS認証情報・JWTトークン・DBパスワードをネットワーク外に出る前にリアルタイム検出・遮蔽。高セキュリティモードでセッション全体をローカルLLMに固定。</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 目標行業 -->
+                        <div>
+                            <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3">
+                                <span data-lang="zh">適用行業</span>
+                                <span data-lang="en">Target Industries</span>
+                                <span data-lang="ja">対象業種</span>
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-slate-100 text-slate-700 text-xs px-3 py-1 rounded-full">
+                                    <span data-lang="zh">🏛 政府機關</span><span data-lang="en">🏛 Government</span><span data-lang="ja">🏛 政府機関</span>
+                                </span>
+                                <span class="bg-slate-100 text-slate-700 text-xs px-3 py-1 rounded-full">
+                                    <span data-lang="zh">🏦 金融服務</span><span data-lang="en">🏦 Financial Services</span><span data-lang="ja">🏦 金融サービス</span>
+                                </span>
+                                <span class="bg-slate-100 text-slate-700 text-xs px-3 py-1 rounded-full">
+                                    <span data-lang="zh">💻 科技與半導體</span><span data-lang="en">💻 Tech & Semiconductor</span><span data-lang="ja">💻 テクノロジー・半導体</span>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Privileged Access Management（右） -->
         <div class="product-card opacity-0 translate-y-8 transition-all duration-700 ease-out border rounded-3xl overflow-hidden shadow-sm hover:shadow-xl bg-white flex flex-col">
             <div class="h-56 md:h-72 overflow-hidden shrink-0">
                 <img src="images/pam.jpg" alt="PAM" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
@@ -152,25 +298,6 @@
             </div>
         </div>
 
-        <div class="product-card opacity-0 translate-y-8 transition-all duration-700 ease-out border rounded-3xl overflow-hidden shadow-sm hover:shadow-xl bg-white flex flex-col">
-            <div class="h-56 md:h-72 overflow-hidden shrink-0">
-                <img src="images/ai-monitor.jpg" alt="AI Monitoring" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-            </div>
-            <div class="p-6 md:p-10 flex-grow">
-                <div class="text-3xl mb-4">🤖</div>
-                <h3 class="text-xl md:text-2xl font-bold mb-4">
-                    <span data-lang="zh">AI 工具監控平台</span>
-                    <span data-lang="en">AI Tool Monitoring Platform</span>
-                    <span data-lang="ja">AIツール監視プラットフォーム</span>
-                </h3>
-                <p class="text-slate-600 text-sm md:text-base leading-relaxed">
-                    <span data-lang="zh">監控數據流向，確保 AI 工具使用高效且符合合規要求。</span>
-                    <span data-lang="en">Monitoring data flow to ensure efficient and compliant AI tool usage.</span>
-                    <span data-lang="ja">データフローを監視し、AIツール利用の効率性と合規性を保証します。</span>
-                </p>
-            </div>
-        </div>
-        
     </div>
 </section>
 
@@ -192,6 +319,21 @@
     document.querySelectorAll('.product-card').forEach(card => {
         observer.observe(card);
     });
+
+    // AI Tool Monitoring — 展開 / 收合
+    let aiDetailOpen = false;
+    function toggleAiDetail() {
+        const detail = document.getElementById('ai-detail');
+        const icon   = document.getElementById('ai-toggle-icon');
+        aiDetailOpen = !aiDetailOpen;
+        if (aiDetailOpen) {
+            detail.style.maxHeight = detail.scrollHeight + 'px';
+            icon.style.transform = 'rotate(180deg)';
+        } else {
+            detail.style.maxHeight = '0px';
+            icon.style.transform = 'rotate(0deg)';
+        }
+    }
 </script>
 
     <section id="advantages" class="py-20 px-6 bg-slate-50">

@@ -14,12 +14,16 @@ This file provides guidance for AI assistants working on this codebase.
 
 ```
 coretrust-web/
-├── index.html       # Entire website — all HTML, CSS (inline), and JS in one file
-├── favicon.png      # Site favicon (PNG)
+├── index.html          # Entire website — all HTML, CSS (inline), and JS in one file
+├── favicon.png         # Site favicon (PNG)
+├── robots.txt          # SEO: crawler directives + sitemap pointer
+├── sitemap.xml         # SEO: hreflang sitemap for zh-Hant / en / ja
 └── images/
-    ├── pam.jpg      # Product image: Privileged Access Management
+    ├── logo.png        # Full brand logo (used in OG/Twitter meta tags)
+    ├── logo-icon.png   # Icon-only logo (transparent bg, used in <nav>)
+    ├── pam.jpg         # Product image: Privileged Access Management
     ├── ai-monitor.jpg  # Product image: AI Tool Monitoring
-    └── keep         # Placeholder to keep the images/ directory tracked by git
+    └── keep            # Placeholder to keep the images/ directory tracked by git
 ```
 
 There is no build system, package manager, or backend. This is a **pure static site**.
@@ -36,6 +40,7 @@ There is no build system, package manager, or backend. This is a **pure static s
 | Forms       | Formspree (`https://formspree.io/f/xvzgkeww`) |
 | i18n        | Custom `data-lang` attribute pattern         |
 | State       | `localStorage` (language preference only)   |
+| SEO         | Meta tags, Open Graph, Twitter Card, JSON-LD, sitemap.xml, robots.txt |
 
 No npm, no Node.js, no bundler, no framework.
 
@@ -95,7 +100,18 @@ The site supports three languages:
 ```
 
 - The active language is persisted in `localStorage` under the key `preferredLang`.
-- On page load, the script reads `preferredLang`, falling back to browser language detection, then to `'en'`.
+- On page load, the script reads `preferredLang`, falling back to browser language detection (`navigator.language`), then to `'en'`.
+- `changeLang()` also updates `document.documentElement.lang` and `document.title` using the `LANG_META` map (helps SEO and accessibility):
+
+```js
+const LANG_META = {
+    zh: { htmlLang: 'zh-Hant', title: '...' },
+    en: { htmlLang: 'en',      title: '...' },
+    ja: { htmlLang: 'ja',      title: '...' }
+};
+```
+
+- Display type: `<span>` and `<option>` elements use `display: inline`; all others use `display: block`.
 
 ### Styling
 
@@ -111,25 +127,50 @@ The site supports three languages:
 - Dark background colour: **slate-800 / #0f172a**
 - Responsive breakpoint used: `md:` (768 px) from Tailwind defaults
 
+### Navigation Logo
+
+The `<nav>` uses a two-part logo:
+1. `<img src="images/logo-icon.png">` — transparent icon (height `h-8 md:h-10`)
+2. A text wordmark: `CORE<span class="text-amber-500">TRUST</span>`
+
+Do not replace the `<img>` with a different asset without also updating the `og:image` and `twitter:image` meta tags (which reference `images/logo.png`).
+
 ### Animations
 
-Scroll-triggered entrance animations are implemented with the **Intersection Observer API**. Product cards fade in and slide up when they enter the viewport. No animation library is used.
+Scroll-triggered entrance animations are implemented with the **Intersection Observer API**. Product cards (`.product-card`) start as `opacity-0 translate-y-8` and transition to `opacity-100 translate-y-0` when they enter the viewport. No animation library is used.
+
+### Product Cards — Expandable Detail
+
+The **AI Tool Monitoring** card includes an expandable detail section:
+
+- Toggle button `id="ai-toggle-btn"` calls `toggleAiDetail()`
+- Detail panel `id="ai-detail"` uses `max-height` CSS transition (`0` ↔ `scrollHeight`) for smooth open/close
+- Arrow icon `id="ai-toggle-icon"` rotates 180° when open
+- State is tracked via the `aiDetailOpen` boolean
+- **The PAM card does not have an expandable section.** Add one following the same pattern if needed.
+
+Card order (left → right on desktop): AI Tool Monitoring, then Privileged Access Management.
 
 ### Form
 
 The contact/demo form (section id `#demo`) POSTs to Formspree. The form ID is `xvzgkeww`. No client-side form validation library is used — only native HTML `required` attributes.
 
+### SEO Files
+
+- `robots.txt` — allows all crawlers and points to `https://coretrustsystem.com/sitemap.xml`
+- `sitemap.xml` — single URL entry with `hreflang` alternates for `zh-Hant`, `en`, `ja`, and `x-default`; update `<lastmod>` when making significant content changes
+
 ---
 
 ## Page Sections (in order)
 
-1. **`<nav>`** — Sticky top bar with logo, language switcher, and "Demo" CTA
-2. **`<header>` (hero)** — Headline, sub-headline, and product summary chips
-3. **Products** — Two product cards (PAM and AI Monitoring) with images
-4. **Advantages** — 4-column grid of key differentiators
-5. **About** — Company background blurb
-6. **`#demo`** — Contact/demo booking form
-7. **`<footer>`** — Copyright and links
+1. **`<nav>`** — Sticky top bar with logo image + wordmark, language switcher, and "Demo" CTA
+2. **`<header>` (hero)** — Headline, sub-headline, and "Products" anchor CTA
+3. **`#products`** — Two product cards: AI Tool Monitoring (left) and PAM (right); AI card has expandable detail
+4. **`#advantages`** — 4-column grid of key differentiators (AI Analysis, Modular Deployment, Intuitive UI, Hybrid Cloud)
+5. **`#about`** — Company background blurb
+6. **`#demo`** — Contact/demo booking form (Formspree)
+7. **`<footer>`** — Copyright and tagline
 
 ---
 
